@@ -98,10 +98,18 @@
     gap: 20px;
     flex-wrap: wrap;
   }
-  .cabecalho-esquerda .logo {
-    height: 110px; /* aumentei mais ainda o tamanho da logomarca */
-    width: auto;
-  }
+.cabecalho-esquerda {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cabecalho-esquerda .logo {
+  height: 110px;
+  width: auto;
+}
+
   .frase {
     flex-grow: 1;
     text-align: center;
@@ -123,10 +131,11 @@
 
 <!-- Cabeçalho estilo banner -->
 <div class="cabecalho">
-  <div class="cabecalho-esquerda">
-    <img src="logomarca.jpg" alt="VM IMPORTS" class="logo" />
-  </div>
+<div class="cabecalho-esquerda">
+  <img src="logomarca.jpg" alt="VM IMPORTS" class="logo" />
   <div class="frase">Essência única, estilo inesquecível!</div>
+</div>
+
   <div class="cabecalho-direita">
     <a class="botao" href="https://wa.me/5537998259520?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20os%20produtos." target="_blank" rel="noopener noreferrer">
       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
