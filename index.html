@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Catálogo de Produtos</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #002147; /* azul profundo */
+    margin: 20px;
+    padding: 0;
+    color: #f0f0f0; /* texto claro */
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #d4af37; /* dourado */
+  }
+  .produtos-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  .produto {
+    background: #0a2a58; /* azul mais claro */
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 16px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.3);
+    color: #f0f0f0;
+    transition: transform 0.2s ease;
+  }
+  .produto:hover {
+    transform: translateY(-5px);
+  }
+  .produto img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    object-fit: contain;
+    height: 180px;
+  }
+  .produto h3 {
+    font-size: 1.3rem;
+    margin: 0 0 10px 0;
+    color: #f0f0f0;
+  }
+  .produto p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 16px 0;
+    color: #f0f0f0;
+  }
+  .botao {
+    background-color: #d4af37; /* dourado */
+    color: #002147; /* azul profundo no texto */
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    display: block;
+  }
+  .botao:hover {
+    background-color: #b5942f; /* dourado escuro */
+  }
+</style>
+</head>
+<body>
+
+<h1>VM IMPORTS</h1>
+
+<div class="produtos-container">
+
+  <!-- Produto 1 -->
+  <div class="produto">
+    <img src="produto15.jpg" alt="Perfume 212 Men NYC" />
+    <h3>Perfume 212 Men NYC</h3>
+    <p>R$ 80,00</p>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20212%20Men%20NYC%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
+  </div>
+
+  <!-- Produto 2 -->
+  <div class="produto">
+    <img src="produto14.jpg" alt="Perfume Ferrari Black" />
+    <h3>Perfume Ferrari Black</h3>
+    <p>R$ 80,00</p>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Ferrari%20Black%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
+  </div>
+
+  <!-- Produto 3 -->
+  <div class="produto">
+    <img src="produto11.jpg" alt="Perfume Animale For Men" />
+    <h3>Perfume Animale For Men</h3>
+    <p>R$ 80,00</p>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Animale%20For%20Men%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
+  </div>
+
+  <!-- Produto 4 -->
+  <div class="produto">
+    <img src="produto10.jpg" alt="Perfume Fantasy Britney Spears" />
+    <h3>Perfume Fantasy Britney Spears</h3>
+    <p>R$ 80,00</p>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Fantasy%20Britney%20Spears%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
+  </div>
+
+  <!-- Produto 5 -->
+  <div class="produto">
+    <img src="produto9.jpg" alt="Perfume Calvin Klein Euphoria" />
+    <h3>Perfume Calvin Klein Euphoria</h3>
+    <p>R$ 80,00</p>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Calvin%20Klein%20Euphoria%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
+  </div>
+
+  <!-- Produto 6 -->
+  <div class="produto">
+    <img src="produto4.jpg" alt="Perfume Azzaro Pour Homme" />
+    <h3>Perfume Azzaro Pour Homme</h3>
+    <p>R$ 80,00</p>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Azzaro%20Pour%20Homme%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
+  </div>
+
+  <!-- Produto 7 -->
+  <div class="produto">
+    <img src="produto8.jpg" alt="Perfume Lattafa Asad Bourbon" />
+    <h3>Perfume Lattafa Asad Bourbon</h3>
+    <p>R$ 80,00</p>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Lattafa%20Asad%20Bourbon%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
+  </div>
+
+  <!-- Produto 8 -->
+  <div class="produto">
+    <img src="produto5.jpg" alt="Perfume Lattafa Fakhar Black" />
+    <h3>Perfume Lattafa Fakhar Black</h3>
+    <p>R$ 80,00</p>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Lattafa%20Fakhar%20Black%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
+  </div>
+
+  <!-- Produto 9 -->
+  <div class="produto">
+    <img src="produto6.jpg" alt="Perfume Lattafa Haya" />
+    <h3>Perfume Lattafa Haya</h3>
+    <p>R$ 80,00</p>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Lattafa%20Haya%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
+  </div>
+
+  <!-- Produto 10 -->
+  <div class="produto">
+    <img src="produto2.jpg" alt="Perfume Al Wataniah Kenz Al Malik" />
+    <h3>Perfume Al Wataniah Kenz Al Malik</h3>
+    <p>R$ 80,00</p>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Al%20Wataniah%20Kenz%20Al%20Malik%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
+  </div>
+
+  <!-- Produto 11 -->
+  <div class="produto">
+    <img src="produto23.jpg" alt="Perfume Lattafa Yara" />
+    <h3>Perfume Lattafa Yara</h3>
+    <p>R$ 80,00</p>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Lattafa%20Yara%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
+  </div>
+
+  <!-- Produto 12 -->
+  <div class="produto">
+    <img src="produto13.jpg" alt="Perfume Club de Nuit Intense" />
+    <h3>Perfume Club de Nuit Intense</h3>
+    <p>R$ 80,00</p>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Club%20de%20Nuit%20Intense%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
+  </div>
+
+  <!-- Produto 13 -->
+  <div class="produto">
+    <img src="produto17.jpg" alt="Perfume Paco Rabanne Invictus" />
+    <h3>Perfume Paco Rabanne Invictus</h3>
+    <p>R$ 80,00</p>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Paco%20Rabanne%20Invictus%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
+  </div>
+
+  <!-- Produto 14 -->
+  <div class="produto">
+    <img src="produto3.jpg" alt="Perfume Wataniah Sabah Al Ward" />
+    <h3>Perfume Wataniah Sabah Al Ward</h3>
+    <p>R$ 80,00</p>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Wataniah%20Sabah%20Al%20Ward%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
+  </div>
+
+  <!-- Produto 15 -->
+  <div class="produto">
+    <img src="produto27.jpg" alt="Perfume Lattafa Asad Black" />
+    <h3>Perfume Lattafa Asad Black</h3>
+    <p>R$ 80,00</p>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Lattafa%20Asad%20Black%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
+  </div>
+
+  <!-- Produto 16 -->
+  <div class="produto">
+    <img src="produto28.jpg" alt="Perfume Lattafa Al Noble Ameer" />
+    <h3>Perfume Lattafa Al Noble Ameer</h3>
+    <p>R$ 80,00</p>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Lattafa%20Al%20Noble%20Ameer%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
+  </div>
+
+  <!-- Produto 17 -->
+  <div class="produto">
+    <img src="produto20.jpg" alt="Perfume Al Wataniah Ameerati" />
+    <h3>Perfume Al Wataniah Ameerati</h3>
+    <p>R$ 80,00</p>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Al%20Wataniah%20Ameerati%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
+  </div>
+
+  <!-- Produto 18 -->
+  <div class="produto">
+    <img src="produto18.jpg" alt="Creme Victoria Secret" />
+    <h3>Creme Victoria Secret</h3>
+    <p>R$ 80,00</p>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Creme%20Victoria%20Secret%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
+  </div>
+
+  <!-- Produto 19 -->
+  <div class="produto">
+    <img src="produto19.jpg" alt="Kit Perfume 212 Vip + Creme 212 Vip" />
+    <h3>Kit Perfume 212 Vip + Creme 212 Vip</h3>
+    <p>R$ 80,00</p>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Kit%20Perfume%20212%20Vip%20%2B%20Creme%20212%20Vip%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
+  </div>
+
+  <!-- Produto 20 -->
+  <div class="produto">
+    <img src="produto24.jpg" alt="Perfume Chants Tenderina" />
+    <h3>Perfume Chants Tenderina</h3>
+    <p>R$ 80,00</p>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Chants%20Tenderina%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
+  </div>
+
+  <!-- Produto 21 -->
+  <div class="produto">
+    <img src="produto25.jpg" alt="Perfume Como Moiselle" />
+    <h3>Perfume Como Moiselle</h3>
+    <p>R$ 80,00</p>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Como%20Moiselle%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
+  </div>
+
+  <!-- Produto 22 -->
+  <div class="produto">
+    <img src="produto16.jpg" alt="Perfume Salvo Intense" />
+    <h3>Perfume Salvo Intense</h3>
+    <p>R$ 80,00</p>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Salvo%20Intense%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
+  </div>
+
+  <!-- Produto 23 -->
+  <div class="produto">
+    <img src="produto34.jpg" alt="Perfume La Vie Est Belle – Brand Collection" />
+    <h3>Perfume La Vie Est Belle – Brand Collection</h3>
+    <p>R$ 80,00</p>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20La%20Vie%20Est%20Belle%20%E2%80%93%20Brand%20Collection%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
+  </div>
+
+  <!-- Produto 24 -->
+  <div class="produto">
+    <img src="produto29.jpg" alt="Perfume La Vie Est Belle Lancôme" />
+    <h3>Perfume La Vie Est Belle Lancôme</h3>
+    <p>R$ 80,00</p>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20La%20Vie%20Est%20Belle%20Lanc%C3%B4me%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
+  </div>
+
+  <!-- Produto 25 -->
+  <div class="produto">
+    <img src="produto32.jpg" alt="Perfume Lattafa Fakhar Gold" />
+    <h3>Perfume Lattafa Fakhar Gold</h3>
+    <p>R$ 80,00</p>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Lattafa%20Fakhar%20Gold%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
+  </div>
+
+  <!-- Produto 26 -->
+  <div class="produto">
+    <img src="produto30.jpg" alt="Perfume Sauvage – Brand Collection" />
+    <h3>Perfume Sauvage – Brand Collection</h3>
+    <p>R$ 80,00</p>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Sauvage%20%E2%80%93%20Brand%20Collection%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
+  </div>
+
+  <!-- Produto 27 -->
+  <div class="produto">
+    <img src="produto21.jpg" alt="Perfume Al Wataniah Durrat Al Aroos" />
+    <h3>Perfume Al Wataniah Durrat Al Aroos</h3>
+    <p>R$ 80,00</p>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Al%20Wataniah%20Durrat%20Al%20Aroos%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
+  </div>
+
+  <!-- Produto 28 -->
+  <div class="produto">
+    <img src="produto26.jpg" alt="Perfume Al Haramain Since 1970" />
+    <h3>Perfume Al Haramain Since 1970</h3>
+    <p>R$ 80,00</p>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Al%20Haramain%20Since%201970%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
+  </div>
+
+</div>
+
+</body>
+</html>
