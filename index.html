@@ -4,9 +4,11 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Catálogo de Produtos</title>
+<!-- Link da fonte Merriweather -->
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet" />
 <style>
   body {
-    font-family: Arial, sans-serif;
+    font-family: 'Playfair Display', serif;
     background: #002147; /* azul profundo */
     margin: 20px;
     padding: 0;
@@ -51,12 +53,12 @@
     margin: 0 0 10px 0;
     color: #f0f0f0;
   }
-  .produto p {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin: 0 0 16px 0;
-    color: #f0f0f0;
+  .produto p,
+  .produto a.botao {
+    font-family: Arial, sans-serif;
   }
+  /* Removi o estilo do botão nos produtos para não aparecerem */
+  /* botão do WhatsApp do cabeçalho */
   .botao {
     background-color: #d4af37; /* dourado */
     color: #002147; /* azul profundo no texto */
@@ -66,17 +68,65 @@
     font-weight: 700;
     border-radius: 6px;
     transition: background-color 0.3s ease;
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
   .botao:hover {
     background-color: #b5942f; /* dourado escuro */
   }
+  .botao img {
+    vertical-align: middle;
+    height: 24px;
+    width: 24px;
+  }
+  .cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    background-color: #0a2a58;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.3);
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .cabecalho-esquerda .logo {
+    height: 110px; /* aumentei mais ainda o tamanho da logomarca */
+    width: auto;
+  }
+  .frase {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #d4af37;
+    min-width: 200px;
+    font-family: 'Merriweather', serif; /* Fonte nova aqui */
+  }
+  .cabecalho-direita .botao {
+    white-space: nowrap;
+    padding: 10px 18px;
+    font-size: 1.1rem;
+  }
 </style>
+
 </head>
 <body>
 
-<div style="display: flex; justify-content: center; margin-bottom: 30px;">
-  <img src="logomarca.jpg" alt="VM IMPORTS" style="max-width: 220px; height: auto;" />
+<!-- Cabeçalho estilo banner -->
+<div class="cabecalho">
+  <div class="cabecalho-esquerda">
+    <img src="logomarca.jpg" alt="VM IMPORTS" class="logo" />
+  </div>
+  <div class="frase">Essência única, estilo inesquecível</div>
+  <div class="cabecalho-direita">
+    <a class="botao" href="https://wa.me/5537998259520?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20os%20produtos." target="_blank" rel="noopener noreferrer">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+      Fale Conosco
+    </a>
+  </div>
 </div>
 
 <div class="produtos-container">
