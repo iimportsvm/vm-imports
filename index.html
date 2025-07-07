@@ -9,15 +9,15 @@
 <style>
   body {
     font-family: 'Playfair Display', serif;
-    background: #002147; /* azul profundo */
+    background: #002147;
     margin: 20px;
     padding: 0;
-    color: #f0f0f0; /* texto claro */
+    color: #f0f0f0;
   }
   h1 {
     text-align: center;
     margin-bottom: 30px;
-    color: #d4af37; /* dourado */
+    color: #d4af37;
   }
   .produtos-container {
     display: flex;
@@ -26,8 +26,8 @@
     justify-content: center;
   }
   .produto {
-	text-align: center;
-    background: #0a2a58; /* azul mais claro */
+    text-align: center;
+    background: #0a2a58;
     border: 1px solid #444;
     border-radius: 8px;
     padding: 16px;
@@ -40,10 +40,10 @@
     transition: transform 0.2s ease;
   }
   .produto a.botao {
-  display: inline-block;
-  margin: 0 auto;
-  text-align: center;
-}
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+  }
   .produto:hover {
     transform: translateY(-5px);
   }
@@ -54,20 +54,17 @@
     object-fit: contain;
     height: 180px;
   }
-.produto h3,
-.produto p {
-  font-family: 'Roboto', sans-serif; /* ou a fonte desejada */
-}
-
+  .produto h3,
+  .produto p {
+    font-family: 'Roboto', sans-serif;
+  }
   .produto p,
   .produto a.botao {
     font-family: Arial, sans-serif;
   }
-  /* Removi o estilo do botão nos produtos para não aparecerem */
-  /* botão do WhatsApp do cabeçalho */
   .botao {
-    background-color: #d4af37; /* dourado */
-    color: #002147; /* azul profundo no texto */
+    background-color: #d4af37;
+    color: #002147;
     padding: 12px 20px;
     text-align: center;
     text-decoration: none;
@@ -79,7 +76,7 @@
     gap: 8px;
   }
   .botao:hover {
-    background-color: #b5942f; /* dourado escuro */
+    background-color: #b5942f;
   }
   .botao img {
     vertical-align: middle;
@@ -98,18 +95,16 @@
     gap: 20px;
     flex-wrap: wrap;
   }
-.cabecalho-esquerda {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.cabecalho-esquerda .logo {
-  height: 110px;
-  width: auto;
-}
-
+  .cabecalho-esquerda {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .cabecalho-esquerda .logo {
+    height: 110px;
+    width: auto;
+  }
   .frase {
     flex-grow: 1;
     text-align: center;
@@ -117,30 +112,70 @@
     font-weight: 700;
     color: #d4af37;
     min-width: 200px;
-    font-family: 'Merriweather', serif; /* Fonte nova aqui */
+    font-family: 'Merriweather', serif;
   }
   .cabecalho-direita .botao {
     white-space: nowrap;
     padding: 10px 18px;
     font-size: 1.1rem;
   }
-</style>
 
+  .botao-flutuante {
+  position: fixed;
+  right: 20px;
+  padding: 10px 14px;
+  border-radius: 50px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.3);
+  background-color: #d4af37;
+  color: #002147;
+  font-weight: 700;
+  font-family: Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  animation: pulsar 2s infinite;
+  z-index: 1000;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.botao-flutuante:hover {
+  background-color: #b5942f;
+}
+
+.botao-flutuante img {
+  height: 24px;
+  width: 24px;
+}
+
+.botao-flutuante.instagram {
+  bottom: 20px;
+}
+
+.botao-flutuante.whatsapp {
+  bottom: 80px;
+}
+
+@keyframes pulsar {
+  0% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+  }
+}
+</style>
 </head>
 <body>
 
-<!-- Cabeçalho estilo banner -->
 <div class="cabecalho">
-<div class="cabecalho-esquerda">
-  <img src="logomarca.jpg" alt="VM IMPORTS" class="logo" />
-  <div class="frase">Essência única, estilo inesquecível!</div>
-</div>
-
-  <div class="cabecalho-direita">
-    <a class="botao" href="https://wa.me/5537998259520?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20os%20produtos." target="_blank" rel="noopener noreferrer">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
-      Fale Conosco!
-    </a>
+  <div class="cabecalho-esquerda">
+    <img src="logomarca.jpg" alt="VM IMPORTS" class="logo" />
+    <div class="frase">Essência única, estilo inesquecível!</div>
   </div>
 </div>
 
@@ -543,7 +578,13 @@
     <img src="produto22.jpg" alt="Perfume Allure Spot - Brand Collection" />
     <h3>Perfume Allure Spot - Brand Collection</h3>
     <p>R$ 99,00</p>
-    <a class="botao" href="https://wa.me/5537998259520?text=Olá! O produto Perfume Allure Spot - Brand Collection ainda está disponível?" target="_blank" rel="noopener noreferrer">Comprar no WhatsApp</a>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Allure%20Spot%20-%20Brand%20Collection%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
   </div>
 
   <!-- Produto 30 -->
@@ -551,7 +592,13 @@
     <img src="produto37.jpg" alt="Perfume 212 VIP Rose - Brand Collection" />
     <h3>Perfume 212 VIP Rose - Brand Collection</h3>
     <p>R$ 99,00</p>
-    <a class="botao" href="https://wa.me/5537998259520?text=Olá! O produto Perfume 212 VIP Rose - Brand Collection ainda está disponível?" target="_blank" rel="noopener noreferrer">Comprar no WhatsApp</a>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20212%20VIP%20Rose%20-%20Brand%20Collection%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
   </div>
 
   <!-- Produto 31 -->
@@ -559,7 +606,13 @@
     <img src="produto44.jpg" alt="Perfume Olympea - Brand Collection" />
     <h3>Perfume Olympea - Brand Collection</h3>
     <p>R$ 99,00</p>
-    <a class="botao" href="https://wa.me/5537998259520?text=Olá! O produto Perfume Olympea - Brand Collection ainda está disponível?" target="_blank" rel="noopener noreferrer">Comprar no WhatsApp</a>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Olympea%20-%20Brand%20Collection%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
   </div>
 
   <!-- Produto 32 -->
@@ -567,7 +620,13 @@
     <img src="produto31.jpg" alt="Perfume Invictus - Brand Collection" />
     <h3>Perfume Invictus - Brand Collection</h3>
     <p>R$ 99,00</p>
-    <a class="botao" href="https://wa.me/5537998259520?text=Olá! O produto Perfume Invictus - Brand Collection ainda está disponível?" target="_blank" rel="noopener noreferrer">Comprar no WhatsApp</a>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Invictus%20-%20Brand%20Collection%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
   </div>
 
   <!-- Produto 33 -->
@@ -575,7 +634,13 @@
     <img src="produto43.jpg" alt="Perfume Good Girl - Brand Collection" />
     <h3>Perfume Good Girl - Brand Collection</h3>
     <p>R$ 115,00</p>
-    <a class="botao" href="https://wa.me/5537998259520?text=Olá! O produto Perfume Good Girl - Brand Collection ainda está disponível?" target="_blank" rel="noopener noreferrer">Comprar no WhatsApp</a>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Good%20Girl%20-%20Brand%20Collection%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
   </div>
 
   <!-- Produto 34 -->
@@ -583,7 +648,13 @@
     <img src="produto38.jpg" alt="Perfume Scandal - Brand Collection" />
     <h3>Perfume Scandal - Brand Collection</h3>
     <p>R$ 99,00</p>
-    <a class="botao" href="https://wa.me/5537998259520?text=Olá! O produto Perfume Scandal - Brand Collection ainda está disponível?" target="_blank" rel="noopener noreferrer">Comprar no WhatsApp</a>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Scandal%20-%20Brand%20Collection%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
   </div>
 
   <!-- Produto 35 -->
@@ -591,7 +662,13 @@
     <img src="produto41.jpg" alt="Perfume 212 VIP Black - Brand Collection" />
     <h3>Perfume 212 VIP Black - Brand Collection</h3>
     <p>R$ 110,00</p>
-    <a class="botao" href="https://wa.me/5537998259520?text=Olá! O produto Perfume 212 VIP Black - Brand Collection ainda está disponível?" target="_blank" rel="noopener noreferrer">Comprar no WhatsApp</a>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20212%20VIP%20Black%20-%20Brand%20Collection%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
   </div>
 
   <!-- Produto 36 -->
@@ -599,7 +676,13 @@
     <img src="produto36.jpg" alt="Perfume 212 Sexy - Brand Collection" />
     <h3>Perfume 212 Sexy - Brand Collection</h3>
     <p>R$ 110,00</p>
-    <a class="botao" href="https://wa.me/5537998259520?text=Olá! O produto Perfume 212 VIP Sexy - Brand Collection ainda está disponível?" target="_blank" rel="noopener noreferrer">Comprar no WhatsApp</a>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20212%20VIP%20Sexy%20-%20Brand%20Collection%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
   </div>
 
   <!-- Produto 37 -->
@@ -607,7 +690,13 @@
     <img src="produto35.jpg" alt="Perfume Club de Nuit Intense - Brand Collection" />
     <h3>Perfume Club de Nuit Intense - Brand Collection</h3>
     <p>R$ 99,00</p>
-    <a class="botao" href="https://wa.me/5537998259520?text=Olá! O produto Perfume Club de Nuit Intense - Brand Collection ainda está disponível?" target="_blank" rel="noopener noreferrer">Comprar no WhatsApp</a>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Club%20de%20Nuit%20Intense%20-%20Brand%20Collection%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
   </div>
 
   <!-- Produto 38 -->
@@ -615,7 +704,13 @@
     <img src="produto40.jpg" alt="Perfume Jean Paul La Belle - Brand Collection" />
     <h3>Perfume Jean Paul La Belle - Brand Collection</h3>
     <p>R$ 99,00</p>
-    <a class="botao" href="https://wa.me/5537998259520?text=Olá! O produto Perfume Jean Paul La Belle - Brand Collection ainda está disponível?" target="_blank" rel="noopener noreferrer">Comprar no WhatsApp</a>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Jean%20Paul%20La%20Belle%20-%20Brand%20Collection%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
   </div>
 
   <!-- Produto 39 -->
@@ -623,26 +718,24 @@
     <img src="produto39.jpg" alt="Perfume Fame - Brand Collection" />
     <h3>Perfume Fame - Brand Collection</h3>
     <p>R$ 99,00</p>
-    <a class="botao" href="https://wa.me/5537998259520?text=Olá! O produto Perfume Fame - Brand Collection ainda está disponível?" target="_blank" rel="noopener noreferrer">Comprar no WhatsApp</a>
+    <a
+      class="botao"
+      href="https://wa.me/5537998259520?text=Ol%C3%A1!%20O%20produto%20Perfume%20Fame%20-%20Brand%20Collection%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Comprar no WhatsApp</a
+    >
   </div>
 
-</div>
+<a href="https://wa.me/5537998259520?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20os%20produtos." target="_blank" rel="noopener noreferrer" class="botao-flutuante whatsapp" aria-label="WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+  Fale Conosco!
+</a>
 
-<!-- Botão Fale Conosco no final da página alinhado à direita -->
-<div style="display: flex; justify-content: flex-end; margin: 0 10px 10px;">
-  <a class="botao" href="https://wa.me/5537998259520?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20os%20produtos." target="_blank" rel="noopener noreferrer" style="padding: 14px 22px; font-size: 1.1rem; display: flex; align-items: center; gap: 10px;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="height: 28px; width: 28px;" />
-    Fale Conosco!
-  </a>
-</div>
-
-<!-- Botão Instagram no final da página alinhado à direita -->
-<div style="display: flex; justify-content: flex-end; margin: 0 10px 40px;">
-  <a class="botao" href="https://www.instagram.com/iimports_vm?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" style="padding: 14px 22px; font-size: 1.1rem; display: flex; align-items: center; gap: 10px;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="height: 24px; width: 24px;" />
-    Siga no Instagram!
-  </a>
-</div>
+<a href="https://www.instagram.com/iimports_vm" target="_blank" rel="noopener noreferrer" class="botao-flutuante instagram" aria-label="Instagram">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" />
+  Siga no Instagram!
+</a>
 
 </body>
 </html>
