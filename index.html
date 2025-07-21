@@ -178,38 +178,69 @@
     transform: translateY(-50%);
     pointer-events: none;
   }
-  .botao-flutuante {
-    position: fixed;
-    right: 20px;
-    padding: 10px 14px;
-    border-radius: 50px;
-    box-shadow: 0 2px 8px rgb(0 0 0 / 0.3);
-    background-color: #d4af37;
-    color: #002147;
-    font-weight: 700;
-    font-family: Arial, sans-serif;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    animation: pulsar 2s infinite;
-    z-index: 1000;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
+.botao-flutuante {
+  position: fixed;
+  right: 20px;
+  padding: 10px 14px;
+  border-radius: 50px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.3);
+  background-color: #d4af37;
+  color: #002147;
+  font-weight: 700;
+  font-family: Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  animation: pulse 3s infinite;
+  z-index: 1000;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.botao-flutuante img {
+  height: 24px;
+  width: 24px;
+  filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.2));
+  transition: filter 0.3s ease;
+}
+
+.botao-flutuante.whatsapp {
+  bottom: 110px;
+  background-color: #25D366;
+  animation-delay: 0s;
+}
+
+.botao-flutuante.instagram {
+  bottom: 50px;
+  background-color: #E1306C;
+  animation-delay: 1.5s;
+}
+
+.botao-flutuante:hover {
+  background-color: #128C3E;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+  transform: scale(1.05);
+  text-decoration: none;
+}
+
+.botao-flutuante.instagram:hover {
+  background-color: #B02858;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+  transform: scale(1.05);
+  text-decoration: none;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
   }
-  .botao-flutuante:hover {
-    background-color: #b5942f;
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
   }
-  .botao-flutuante img {
-    height: 24px;
-    width: 24px;
-  }
-  .botao-flutuante.instagram {
-    bottom: 50px;
-  }
-  .botao-flutuante.whatsapp {
-    bottom: 110px;
-  }
+}
 
   /* Ícone fixo do carrinho com contador */
   #icone-carrinho {
