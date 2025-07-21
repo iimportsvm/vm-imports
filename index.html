@@ -506,6 +506,37 @@
   color: #ffd700;
 }
 
+.controle-quantidade {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.controle-quantidade button {
+  background-color: #d4af37;
+  border: none;
+  color: #002147;
+  font-weight: 700;
+  font-size: 18px;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.controle-quantidade button:hover {
+  background-color: #b5942f;
+}
+
+.controle-quantidade .quantidade {
+  min-width: 20px;
+  text-align: center;
+  font-weight: 700;
+  font-family: Arial, sans-serif;
+  color: #d4af37;
+}
+
 </style>
 </head>
 <body>
@@ -1201,7 +1232,7 @@
 </div>
 
 <script>
-  // Elementos
+  // Elementos principais
   const iconeCarrinho = document.getElementById('icone-carrinho');
   const contadorCarrinho = document.getElementById('contador-carrinho');
   const modalCarrinho = document.getElementById('modal-carrinho');
@@ -1214,34 +1245,36 @@
 
   let carrinho = {};
 
-  // Atualiza contador visual do carrinho
   function atualizarContador() {
     const totalItens = Object.values(carrinho).reduce((acc, item) => acc + item.quantidade, 0);
     contadorCarrinho.textContent = totalItens;
   }
 
-  // Atualiza a lista de itens no modal
   function atualizarListaItens() {
     listaItens.innerHTML = '';
     let totalPreco = 0;
+
     for (const id in carrinho) {
       const item = carrinho[id];
       const itemDiv = document.createElement('div');
       itemDiv.className = 'item-carrinho';
 
       itemDiv.innerHTML = `
-        <span>${item.nome} x${item.quantidade}</span>
-        <button class="remover-item" data-id="${id}" aria-label="Remover ${item.nome} do carrinho">&times;</button>
+        <span>${item.nome}</span>
+        <div class="controle-quantidade">
+          <button class="btn-diminuir" data-id="${id}" aria-label="Diminuir quantidade de ${item.nome}">-</button>
+          <span class="quantidade">${item.quantidade}</span>
+          <button class="btn-aumentar" data-id="${id}" aria-label="Aumentar quantidade de ${item.nome}">+</button>
+        </div>
       `;
 
       listaItens.appendChild(itemDiv);
-
       totalPreco += item.preco * item.quantidade;
     }
+
     document.getElementById('total-carrinho').textContent = 'Total: R$ ' + totalPreco.toFixed(2);
   }
 
-  // Adiciona item ao carrinho
   function adicionarAoCarrinho(id, nome, preco) {
     if (carrinho[id]) {
       carrinho[id].quantidade++;
@@ -1252,10 +1285,11 @@
     atualizarListaItens();
   }
 
-  // Remove item do carrinho
+  // ✅ Aqui corrige e organiza os botões + / - / remover
   listaItens.addEventListener('click', (e) => {
-    if (e.target.classList.contains('remover-item')) {
-      const id = e.target.getAttribute('data-id');
+    const id = e.target.getAttribute('data-id');
+
+    if (e.target.classList.contains('btn-diminuir')) {
       if (carrinho[id]) {
         carrinho[id].quantidade--;
         if (carrinho[id].quantidade <= 0) {
@@ -1265,60 +1299,62 @@
         atualizarListaItens();
       }
     }
+
+    if (e.target.classList.contains('btn-aumentar')) {
+      if (carrinho[id]) {
+        carrinho[id].quantidade++;
+        atualizarContador();
+        atualizarListaItens();
+      }
+    }
+
+    if (e.target.classList.contains('remover-item')) {
+      if (carrinho[id]) {
+        delete carrinho[id];
+        atualizarContador();
+        atualizarListaItens();
+      }
+    }
   });
 
-  // Abre ou fecha modal do carrinho
   iconeCarrinho.addEventListener('click', () => {
     modalCarrinho.style.display = modalCarrinho.style.display === 'flex' ? 'none' : 'flex';
   });
+
   fecharCarrinhoBtn.addEventListener('click', () => {
     modalCarrinho.style.display = 'none';
   });
 
-  // Evento botão finalizar compra
   btnFinalizarCompra.addEventListener('click', () => {
     modalCarrinho.style.display = 'none';
     modalPagamento.style.display = 'block';
   });
 
-  // Evento fechar modal pagamento
   btnFecharPagamento.addEventListener('click', () => {
     modalPagamento.style.display = 'none';
     modalCarrinho.style.display = 'flex';
   });
 
-  // Eventos botões formas de pagamento
   botoesPagamento.forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    const forma = e.target.getAttribute('data-pagamento');
+    btn.addEventListener('click', (e) => {
+      const forma = e.target.getAttribute('data-pagamento');
+      let mensagemProdutos = '';
 
-    // Monta a lista dos produtos com nome e quantidade
-    let mensagemProdutos = '';
-    for (const id in carrinho) {
-      const item = carrinho[id];
-      mensagemProdutos += `- ${item.nome} x${item.quantidade}\n`;
-    }
+      for (const id in carrinho) {
+        const item = carrinho[id];
+        mensagemProdutos += `- ${item.nome} x${item.quantidade}\n`;
+      }
 
-    // Monta a mensagem completa
-    const mensagem = `Olá! Gostaria de finalizar a compra com a forma de pagamento: *${forma}*.\nProdutos:
- ${mensagemProdutos}`;
+      const mensagem = `Olá! Gostaria de finalizar a compra com a forma de pagamento: *${forma}*.\nProdutos:\n${mensagemProdutos}`;
+      const mensagemUrl = encodeURIComponent(mensagem);
+      const numeroWhatsApp = '5537998259520';
+      const linkWhats = `https://wa.me/${numeroWhatsApp}?text=${mensagemUrl}`;
 
-    // Codifica para URL
-    const mensagemUrl = encodeURIComponent(mensagem);
-
-    // Seu número WhatsApp (coloque o número correto com DDD e sem espaços)
-    const numeroWhatsApp = '5537998259520';
-
-    // Link completo para abrir o WhatsApp com a mensagem pronta
-    const linkWhats = `https://wa.me/${numeroWhatsApp}?text=${mensagemUrl}`;
-
-    // Fecha o modal e redireciona para o WhatsApp
-    modalPagamento.style.display = 'none';
-    window.location.href = linkWhats;
+      modalPagamento.style.display = 'none';
+      window.location.href = linkWhats;
+    });
   });
-});
 
-  // Botões adicionar ao carrinho
   document.querySelectorAll('.botao-adicionar').forEach(botao => {
     botao.addEventListener('click', () => {
       const produtoDiv = botao.closest('.produto');
@@ -1329,44 +1365,33 @@
     });
   });
 
-  // Inicializa contador no zero
   atualizarContador();
-  
-const btnPesquisa = document.getElementById('btn-pesquisa');
-const campoPesquisa = document.getElementById('campoPesquisa');
 
-btnPesquisa.addEventListener('click', () => {
-  campoPesquisa.classList.toggle('ativo');
-  if (campoPesquisa.classList.contains('ativo')) {
-    campoPesquisa.focus();
-  }
-});
+  const btnPesquisa = document.getElementById('btn-pesquisa');
+  const campoPesquisa = document.getElementById('campoPesquisa');
 
-// Inicializa contador no zero
-atualizarContador();
-
-// Exemplo simples de filtro (adapte para seu filtro real de produtos)
-campoPesquisa.addEventListener('input', () => {
-  const termo = campoPesquisa.value.toLowerCase();
-  const produtos = document.querySelectorAll('.produto');
-
-  produtos.forEach(produto => {
-    const nome = produto.querySelector('h3').textContent.toLowerCase();
-    if (nome.includes(termo)) {
-      produto.style.display = 'flex';  // Ou 'block', conforme seu layout
-    } else {
-      produto.style.display = 'none';
+  btnPesquisa.addEventListener('click', () => {
+    campoPesquisa.classList.toggle('ativo');
+    if (campoPesquisa.classList.contains('ativo')) {
+      campoPesquisa.focus();
     }
   });
 
-  // Mostra mensagem de "não encontrado" se quiser, ajustando o ID abaixo
-  const msgNaoEncontrado = document.getElementById('mensagemNaoEncontrado');
-  if (msgNaoEncontrado) {
-    const algumVisivel = Array.from(produtos).some(p => p.style.display !== 'none');
-    msgNaoEncontrado.style.display = algumVisivel ? 'none' : 'block';
-  }
-});
+  campoPesquisa.addEventListener('input', () => {
+    const termo = campoPesquisa.value.toLowerCase();
+    const produtos = document.querySelectorAll('.produto');
 
+    produtos.forEach(produto => {
+      const nome = produto.querySelector('h3').textContent.toLowerCase();
+      produto.style.display = nome.includes(termo) ? 'flex' : 'none';
+    });
+
+    const msgNaoEncontrado = document.getElementById('mensagemNaoEncontrado');
+    if (msgNaoEncontrado) {
+      const algumVisivel = Array.from(produtos).some(p => p.style.display !== 'none');
+      msgNaoEncontrado.style.display = algumVisivel ? 'none' : 'block';
+    }
+  });
 </script>
 
 <footer style="
