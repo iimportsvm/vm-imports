@@ -6,7 +6,68 @@
 <title>VM IMPORTS</title>
 <!-- Fonte e estilos existentes -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Merriweather:wght@700&display=swap" rel="stylesheet" />
+
+<!-- Pop-up de saída -->
+<div id="popup-saida">
+  <div class="conteudo-popup">
+    <h2>Oferta Especial!</h2>
+    <p>VEJA AGORA AS PROMOÇÕES DISPONÍVEIS!</p>
+    <button class="botao-popup" id="fechar-popup">Fechar</button>
+    <button class="botao-popup" id="btn-promocoes">Confira</button>
+  </div>
+</div>
+
 <style>
+
+.botao-popup {
+  background-color: #d40000; /* Cor do botão */
+  color: white; /* Texto branco */
+  border: none;
+  padding: 8px 12px;
+  margin: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.botao-popup:hover {
+  background-color: #e65c00; /* Cor ao passar o mouse */
+}
+
+#popup-saida {
+  display: none; /* Começa escondido */
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  z-index: 9999;
+}
+
+.conteudo-popup {
+  background: #002147;
+  padding: 20px;
+  max-width: 400px;
+  margin: 15% auto;
+  text-align: center;
+  border-radius: 10px;
+}
+
+#fechar-popup {
+  background-color: #d40000; /* Cor do botão */
+  color: white; /* Texto branco */
+  border: none;
+  padding: 8px 12px;
+  margin: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+#fechar-popup:hover {
+  background-color: #e65c00; /* Cor ao passar o mouse */
+}
 
 .etiqueta-promocao {
   position: absolute;
@@ -1506,6 +1567,40 @@ campoPesquisa.addEventListener('input', () => {
 });
 
 carregarCarrinho();
+
+let popupMostrado = false;
+
+document.addEventListener("mouseleave", function(e) {
+  if (e.clientY < 0 && !popupMostrado) { 
+    document.getElementById("popup-saida").style.display = "block";
+    popupMostrado = true; // só mostra uma vez
+  }
+});
+
+document.getElementById("fechar-popup").addEventListener("click", function() {
+  document.getElementById("popup-saida").style.display = "none";
+});
+
+document.getElementById("btn-promocoes").addEventListener("click", function() {
+  // Fecha o pop-up
+  document.getElementById("popup-saida").style.display = "none";
+
+  // Pega todos os produtos
+  const produtos = document.querySelectorAll(".produto");
+
+  // Mostra só os que têm a etiqueta de promoção
+  produtos.forEach(produto => {
+    if (produto.querySelector(".etiqueta-promocao")) {
+      produto.style.display = "block"; // Mostra
+    } else {
+      produto.style.display = "none"; // Esconde
+    }
+  });
+
+  // Rola até os produtos
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
 </script>
 
 <footer style="
@@ -1524,9 +1619,3 @@ carregarCarrinho();
 </footer>
 </body>
 </html>
-
-
-
-
-
-
