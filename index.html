@@ -1591,9 +1591,9 @@ document.getElementById("btn-promocoes").addEventListener("click", function() {
   // Mostra só os que têm a etiqueta de promoção
   produtos.forEach(produto => {
     if (produto.querySelector(".etiqueta-promocao")) {
-      produto.style.display = "block"; // Mostra
+      produto.style.display = "flex";
     } else {
-      produto.style.display = "none"; // Esconde
+      produto.style.display = "none";
     }
   });
 
