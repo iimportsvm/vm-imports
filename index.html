@@ -1740,7 +1740,7 @@ document.getElementById("btn-promocoes").addEventListener("click", function() {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
- document.querySelector('.botao-flutuante-esquerda').addEventListener('click', async () => {
+document.querySelector('.botao-flutuante-esquerda').addEventListener('click', async () => {
   const shareData = {
     title: 'VM IMPORTS',
     text: 'Confira esses produtos incríveis!',
@@ -1755,7 +1755,10 @@ document.getElementById("btn-promocoes").addEventListener("click", function() {
       console.error('Erro ao compartilhar:', err);
     }
   } else {
-    alert('Compartilhamento não suportado neste dispositivo. Copie o link manualmente!');
+    // Fallback para dispositivos que não suportam
+    navigator.clipboard.writeText(window.location.href)
+      .then(() => alert('Link copiado! Compartilhe manualmente.'))
+      .catch(() => alert('Não foi possível copiar o link.'));
   }
 });
 
@@ -1777,4 +1780,5 @@ document.getElementById("btn-promocoes").addEventListener("click", function() {
 </footer>
 </body>
 </html>
+
 
