@@ -17,45 +17,7 @@
   </div>
 </div>
 
-<!-- Botão Compartilhar -->
-<button id="btn-compartilhar" class="botao-flutuante-esquerda">
-  <img src="https://cdn-icons-png.flaticon.com/512/929/929610.png" alt="Compartilhar">
-</button>
-
 <style>
-
-  .botao-flutuante-esquerda {
-    position: fixed;
-    bottom: 50px;    /* mesma altura dos botões da direita */
-    left: 20px;      /* colado na lateral esquerda */
-    background: #d4af37;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0px 3px 6px rgba(0,0,0,0.2);
-    transition: transform 0.2s;
-    z-index: 999;
-  }
-
-  .botao-flutuante-esquerda img {
-    width: 28px;
-    height: 28px;
-  }
-
-  .botao-flutuante-esquerda:hover {
-    transform: scale(1.1);
-  }
-  
-.botao-flutuante-esquerda:hover {
-  background-color: #b5942f; /* cor ao passar o mouse */
-  transform: scale(1.1);     /* leve aumento */
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* sombra mais destacada */
-}
 
 .botao-popup {
   background-color: #d40000; /* Cor do botão */
@@ -1740,28 +1702,6 @@ document.getElementById("btn-promocoes").addEventListener("click", function() {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-document.querySelector('.botao-flutuante-esquerda').addEventListener('click', async () => {
-  const shareData = {
-    title: 'VM IMPORTS',
-    text: 'Confira esses produtos incríveis!',
-    url: window.location.href
-  }
-
-  if (navigator.share) {
-    try {
-      await navigator.share(shareData);
-      console.log('Compartilhado com sucesso!');
-    } catch (err) {
-      console.error('Erro ao compartilhar:', err);
-    }
-  } else {
-    // Fallback para dispositivos que não suportam
-    navigator.clipboard.writeText(window.location.href)
-      .then(() => alert('Link copiado! Compartilhe manualmente.'))
-      .catch(() => alert('Não foi possível copiar o link.'));
-  }
-});
-
 </script>
 
 <footer style="
@@ -1780,6 +1720,7 @@ document.querySelector('.botao-flutuante-esquerda').addEventListener('click', as
 </footer>
 </body>
 </html>
+
 
 
 
