@@ -1702,6 +1702,15 @@ document.getElementById("btn-promocoes").addEventListener("click", function() {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
+// Remove parâmetros desnecessários da URL
+(function() {
+  const url = new URL(window.location.href);
+  if (url.search) {   // Se houver parâmetros
+    url.search = '';  // Limpa os parâmetros
+    window.history.replaceState(null, '', url.toString());
+  }
+})();
+	
 </script>
 
 <footer style="
@@ -1720,6 +1729,7 @@ document.getElementById("btn-promocoes").addEventListener("click", function() {
 </footer>
 </body>
 </html>
+
 
 
 
