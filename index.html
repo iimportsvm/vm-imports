@@ -1740,21 +1740,24 @@ document.getElementById("btn-promocoes").addEventListener("click", function() {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-  document.getElementById("btn-compartilhar").addEventListener("click", async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: "Confira meus produtos!",
-          text: "Achei promoções incríveis, veja aqui!",
-          url: window.location.href
-        });
-      } catch (err) {
-        console.log("Compartilhamento cancelado:", err);
-      }
-    } else {
-      alert("Seu navegador não suporta compartilhamento direto.");
+ document.querySelector('.botao-flutuante-esquerda').addEventListener('click', async () => {
+  const shareData = {
+    title: 'VM IMPORTS',
+    text: 'Confira esses produtos incríveis!',
+    url: window.location.href
+  }
+
+  if (navigator.share) {
+    try {
+      await navigator.share(shareData);
+      console.log('Compartilhado com sucesso!');
+    } catch (err) {
+      console.error('Erro ao compartilhar:', err);
     }
-  });
+  } else {
+    alert('Compartilhamento não suportado neste dispositivo. Copie o link manualmente!');
+  }
+});
 
 </script>
 
@@ -1774,3 +1777,4 @@ document.getElementById("btn-promocoes").addEventListener("click", function() {
 </footer>
 </body>
 </html>
+
