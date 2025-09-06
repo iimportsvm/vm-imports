@@ -1918,7 +1918,33 @@ document.getElementById("btn-promocoes").addEventListener("click", function() {
   // Scroll para o topo
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
-	
+
+	// Função para limpar caracteres problemáticos
+function limparNomeProduto(texto) {
+  return texto
+    .normalize('NFKD')               // separa acentos
+    .replace(/[\u0300-\u036f]/g, '') // remove acentos
+    .replace(/[\u200B-\u200D\uFEFF]/g, '') // remove invisíveis
+    .replace(/[\*\~ç]/gi, '')        // remove *, ~ e ç
+    .trim();
+}
+
+// Monta a mensagem do WhatsApp
+let mensagemProdutos = '';
+for (const id in carrinho) {
+  const item = carrinho[id];
+  let nomeLimpo = limparNomeProduto(item.nome);
+  mensagemProdutos += `- ${nomeLimpo} x${item.quantidade}\n`;
+}
+
+const mensagem = `Olá! Gostaria de finalizar a compra com a forma de pagamento: ${forma}.\nProdutos:\n${mensagemProdutos}`;
+const mensagemUrl = encodeURIComponent(mensagem);
+const numeroWhatsApp = '5537998259520';
+const linkWhats = `https://wa.me/${numeroWhatsApp}?text=${mensagemUrl}`;
+
+// Redireciona para WhatsApp
+window.location.href = linkWhats;
+
 </script>
 
 <footer style="
@@ -1937,3 +1963,4 @@ document.getElementById("btn-promocoes").addEventListener("click", function() {
 </footer>
 </body>
 </html>
+
