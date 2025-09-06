@@ -1800,26 +1800,6 @@ btnFecharPagamento.addEventListener('click', () => {
   modalCarrinho.style.display = 'flex';
 });
 
-botoesPagamento.forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    const forma = e.target.getAttribute('data-pagamento');
-    let mensagemProdutos = '';
-
-    for (const id in carrinho) {
-      const item = carrinho[id];
-      mensagemProdutos += `- ${item.nome} x${item.quantidade}\n`;
-    }
-
-    const mensagem = `Olá! Gostaria de finalizar a compra com a forma de pagamento: ${forma}.\nProdutos:\n${mensagemProdutos}`;
-    const mensagemUrl = encodeURIComponent(mensagem);
-    const numeroWhatsApp = '5537998259520';
-    const linkWhats = `https://wa.me/${numeroWhatsApp}?text=${mensagemUrl}`;
-
-    modalPagamento.style.display = 'none';
-    window.location.href = linkWhats;
-  });
-});
-
 document.querySelectorAll('.botao-adicionar').forEach(botao => {
   botao.addEventListener('click', () => {
     const produtoDiv = botao.closest('.produto');
@@ -1919,7 +1899,7 @@ document.getElementById("btn-promocoes").addEventListener("click", function() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-	// Função para limpar caracteres problemáticos
+// Função para limpar caracteres problemáticos
 function limparNomeProduto(texto) {
   return texto
     .normalize('NFKD')               // separa acentos
@@ -1928,22 +1908,27 @@ function limparNomeProduto(texto) {
     .replace(/[\*\~ç]/gi, '')        // remove *, ~ e ç
     .trim();
 }
+	
+botoesPagamento.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    const forma = e.target.getAttribute('data-pagamento');
+    let mensagemProdutos = '';
 
-// Monta a mensagem do WhatsApp
-let mensagemProdutos = '';
-for (const id in carrinho) {
-  const item = carrinho[id];
-  let nomeLimpo = limparNomeProduto(item.nome);
-  mensagemProdutos += `- ${nomeLimpo} x${item.quantidade}\n`;
-}
+    for (const id in carrinho) {
+      const item = carrinho[id];
+      let nomeLimpo = limparNomeProduto(item.nome);
+      mensagemProdutos += `- ${nomeLimpo} x${item.quantidade}\n`;
+    }
 
-const mensagem = `Olá! Gostaria de finalizar a compra com a forma de pagamento: ${forma}.\nProdutos:\n${mensagemProdutos}`;
-const mensagemUrl = encodeURIComponent(mensagem);
-const numeroWhatsApp = '5537998259520';
-const linkWhats = `https://wa.me/${numeroWhatsApp}?text=${mensagemUrl}`;
+    const mensagem = `Olá! Gostaria de finalizar a compra com a forma de pagamento: ${forma}.\nProdutos:\n${mensagemProdutos}`;
+    const mensagemUrl = encodeURIComponent(mensagem);
+    const numeroWhatsApp = '5537998259520';
+    const linkWhats = `https://wa.me/${numeroWhatsApp}?text=${mensagemUrl}`;
 
-// Redireciona para WhatsApp
-window.location.href = linkWhats;
+    modalPagamento.style.display = 'none';
+    window.location.href = linkWhats;
+  });
+});
 
 </script>
 
@@ -1963,4 +1948,5 @@ window.location.href = linkWhats;
 </footer>
 </body>
 </html>
+
 
