@@ -1920,7 +1920,7 @@ botoesPagamento.forEach(btn => {
 mensagemProdutos += `- ${nomeLimpo} x${item.quantidade}\n`;
     }
 
-    const mensagem = `Olá! Gostaria de finalizar a compra com a forma de pagamento: ${forma}.\nProdutos:\n${mensagemProdutos}`;
+    const mensagem = `Olá! Gostaria de finalizar a compra com a forma de pagamento ${forma}.\nProdutos\n${mensagemProdutos}`;
     const mensagemUrl = encodeURIComponent(mensagem);
     const numeroWhatsApp = '5537998259520';
     const linkWhats = `https://wa.me/${numeroWhatsApp}?text=${mensagemUrl}`;
@@ -1953,6 +1953,7 @@ let mensagemLimpa = mensagemOriginal.replace(/\*/g, '');
 </footer>
 </body>
 </html>
+
 
 
 
