@@ -507,12 +507,12 @@
   font-size: 1.5rem;
 }
 
-.btn-pagamento[data-pagamento="DINHEIRO"]::before {
+.btn-pagamento[data-pagamento=DINHEIRO]::before {
   content: "💵";
   font-size: 1.5rem;
 }
 
-.btn-pagamento[data-pagamento="CARTÃO"]::before {
+.btn-pagamento[data-pagamento=CARTÃO]::before {
   content: "💳";
   font-size: 1.5rem;
 }
@@ -1675,8 +1675,8 @@
 <div id="modal-pagamento" aria-label="Escolha a forma de pagamento">
   <h3>Escolha a forma de pagamento</h3>
   <button class="btn-pagamento" data-pagamento=PIX>PIX</button>
-  <button class="btn-pagamento" data-pagamento="DINHEIRO">Dinheiro</button>
-  <button class="btn-pagamento" data-pagamento="CARTÃO">Cartão</button>
+  <button class="btn-pagamento" data-pagamento=DINHEIRO>Dinheiro</button>
+  <button class="btn-pagamento" data-pagamento=CARTÃO>Cartão</button>
   <button id="fechar-pagamento">Cancelar</button>
 </div>
 
