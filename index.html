@@ -1918,6 +1918,16 @@ document.getElementById("btn-promocoes").addEventListener("click", function() {
   // Scroll para o topo
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+function sanitizarParaWhatsApp(texto) {
+  return texto.replace(/[\u200B-\u200D\uFEFF]/g, '').replace(/\*/g, '').trim();
+}
+
+let mensagemProdutos = '';
+for (const id in carrinho) {
+  const item = carrinho[id];
+  mensagemProdutos += `- ${sanitizarParaWhatsApp(item.nome)} x${item.quantidade}\n`;
+}
 	
 </script>
 
@@ -1937,4 +1947,5 @@ document.getElementById("btn-promocoes").addEventListener("click", function() {
 </footer>
 </body>
 </html>
+
 
