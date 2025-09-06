@@ -502,17 +502,17 @@
 }
 
 /* Ícones simples (SVG inline ou imagens pequenas) para cada forma de pagamento */
-.btn-pagamento[data-pagamento=PIX]::before {
+.btn-pagamento[data-pagamento="PIX"]::before {
   content: "💸";
   font-size: 1.5rem;
 }
 
-.btn-pagamento[data-pagamento=DINHEIRO]::before {
+.btn-pagamento[data-pagamento="DINHEIRO"]::before {
   content: "💵";
   font-size: 1.5rem;
 }
 
-.btn-pagamento[data-pagamento=CARTÃO]::before {
+.btn-pagamento[data-pagamento="CARTÃO"]::before {
   content: "💳";
   font-size: 1.5rem;
 }
@@ -1674,9 +1674,9 @@
 <!-- Modal forma de pagamento -->
 <div id="modal-pagamento" aria-label="Escolha a forma de pagamento">
   <h3>Escolha a forma de pagamento</h3>
-  <button class="btn-pagamento" data-pagamento=PIX>PIX</button>
-  <button class="btn-pagamento" data-pagamento=DINHEIRO>Dinheiro</button>
-  <button class="btn-pagamento" data-pagamento=CARTÃO>Cartão</button>
+  <button class="btn-pagamento" data-pagamento="PIX">PIX</button>
+  <button class="btn-pagamento" data-pagamento="DINHEIRO">Dinheiro</button>
+  <button class="btn-pagamento" data-pagamento="CARTÃO">Cartão</button>
   <button id="fechar-pagamento">Cancelar</button>
 </div>
 
@@ -1810,7 +1810,7 @@ botoesPagamento.forEach(btn => {
       mensagemProdutos += `- ${item.nome} x${item.quantidade}\n`;
     }
 
-    const mensagem = Olá! Gostaria de finalizar a compra com a forma de pagamento: ${forma}.\nProdutos:\n${mensagemProdutos};
+    const mensagem = `Olá! Gostaria de finalizar a compra com a forma de pagamento: ${forma}.\nProdutos:\n${mensagemProdutos}`;
     const mensagemUrl = encodeURIComponent(mensagem);
     const numeroWhatsApp = '5537998259520';
     const linkWhats = `https://wa.me/${numeroWhatsApp}?text=${mensagemUrl}`;
@@ -1918,38 +1918,6 @@ document.getElementById("btn-promocoes").addEventListener("click", function() {
   // Scroll para o topo
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
-
-function sanitizarParaWhatsApp(texto) {
-  return texto.replace(/[\u200B-\u200D\uFEFF]/g, '').replace(/\*/g, '').trim();
-}
-
-let mensagemProdutos = '';
-for (const id in carrinho) {
-  const item = carrinho[id];
-  mensagemProdutos += `- ${sanitizarParaWhatsApp(item.nome)} x${item.quantidade}\n`;
-}
-
-let mensagemProdutos = '';
-for (const id in carrinho) {
-  const item = carrinho[id];
-  let nomeLimpo = item.nome.replace(/\*/g, ''); // remove TODOS os asteriscos
-  mensagemProdutos += `- ${nomeLimpo} x${item.quantidade}\n`;
-}
-
-function limparNomeProduto(texto) {
-  return texto
-    .normalize('NFKD')          
-    .replace(/[\u0300-\u036f]/g, '') 
-    .replace(/[\u200B-\u200D\uFEFF]/g, '') 
-    .replace(/\*/g, '')          
-    .trim();
-}
-
-	let mensagemProdutos = '';
-for (const id in carrinho) {
-  const item = carrinho[id];
-  mensagemProdutos += `- ${limparNomeProduto(item.nome)} x${item.quantidade}\n`;
-}
 	
 </script>
 
@@ -1969,8 +1937,3 @@ for (const id in carrinho) {
 </footer>
 </body>
 </html>
-
-
-
-
-
