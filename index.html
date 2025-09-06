@@ -1916,8 +1916,8 @@ botoesPagamento.forEach(btn => {
 
     for (const id in carrinho) {
       const item = carrinho[id];
-      let nomeLimpo = limparNomeProduto(item.nome);
-mensagemProdutos += `- ${nomeLimpo} x${item.quantidade}\n`;
+      let nomeLimpo = limparNomeProduto(item.nome); // remove *
+      mensagemProdutos += `- ${nomeLimpo} x${item.quantidade}\n`;
     }
 
     const mensagem = `Olá! Gostaria de finalizar a compra com a forma de pagamento ${forma}.\nProdutos\n${mensagemProdutos}`;
@@ -1929,11 +1929,6 @@ mensagemProdutos += `- ${nomeLimpo} x${item.quantidade}\n`;
     window.location.href = linkWhats;
   });
 });
-
-let mensagemLimpa = mensagemOriginal.replace(/\*/g, '');
-
-	console.log(mensagemLimpa);
-	mensagem = mensagem.replace(/\*/g, "");
 
 </script>
 
@@ -1953,6 +1948,7 @@ let mensagemLimpa = mensagemOriginal.replace(/\*/g, '');
 </footer>
 </body>
 </html>
+
 
 
 
