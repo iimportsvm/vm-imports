@@ -1899,27 +1899,25 @@ document.getElementById("btn-promocoes").addEventListener("click", function() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-function sanitizarParaWhatsApp(texto) {
-  return texto
-    // Remove caracteres de controle e invisíveis
-    .replace(/[\u200B-\u200D\uFEFF]/g, '')
-    // Substitui múltiplos espaços por um espaço simples
-    .replace(/\s+/g, ' ')
-    // Remove asteriscos para evitar Markdown indesejado
-    .replace(/\*/g, '')
-    // Remove espaços no início e no fim
-    .trim();
-}
+botoesPagamento.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    const forma = e.target.getAttribute('data-pagamento');
+    let mensagemProdutos = '';
 
-// Exemplo de uso
-const produtos = [
-  "Perfume Ouro Cósmico - Inspiração",
-  "Perfume Souvenir branco - Inspiração"
-];
+    for (const id in carrinho) {
+      const item = carrinho[id];
+      mensagemProdutos += `- ${item.nome} x${item.quantidade}\n`;
+    }
 
-const mensagemWhatsApp = produtos.map(p => `- ${sanitizarParaWhatsApp(p)} x1`).join('\n');
+    const mensagem = `Olá! Gostaria de finalizar a compra com a forma de pagamento: ${forma}.\nProdutos:\n${mensagemProdutos}`;
+    const mensagemUrl = encodeURIComponent(mensagem);
+    const numeroWhatsApp = '5537998259520';
+    const linkWhats = `https://wa.me/${numeroWhatsApp}?text=${mensagemUrl}`;
 
-console.log(mensagemWhatsApp);
+    modalPagamento.style.display = 'none';
+    window.location.href = linkWhats;
+  });
+});
 	
 </script>
 
@@ -1939,5 +1937,6 @@ console.log(mensagemWhatsApp);
 </footer>
 </body>
 </html>
+
 
 
