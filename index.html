@@ -502,7 +502,7 @@
 }
 
 /* Ícones simples (SVG inline ou imagens pequenas) para cada forma de pagamento */
-.btn-pagamento[data-pagamento="PIX"]::before {
+.btn-pagamento[data-pagamento=PIX]::before {
   content: "💸";
   font-size: 1.5rem;
 }
@@ -1674,7 +1674,7 @@
 <!-- Modal forma de pagamento -->
 <div id="modal-pagamento" aria-label="Escolha a forma de pagamento">
   <h3>Escolha a forma de pagamento</h3>
-  <button class="btn-pagamento" data-pagamento="PIX">PIX</button>
+  <button class="btn-pagamento" data-pagamento=PIX>PIX</button>
   <button class="btn-pagamento" data-pagamento="DINHEIRO">Dinheiro</button>
   <button class="btn-pagamento" data-pagamento="CARTÃO">Cartão</button>
   <button id="fechar-pagamento">Cancelar</button>
@@ -1937,4 +1937,3 @@ document.getElementById("btn-promocoes").addEventListener("click", function() {
 </footer>
 </body>
 </html>
-
