@@ -1673,6 +1673,9 @@
   <button id="finalizar-compra" style="margin-top: 12px; background:#002147; border:none; padding:8px 12px; border-radius:6px; cursor:pointer; font-weight:700; color:#d4af37;">
     Finalizar Compra
   </button>
+	<button id="limpar-carrinho" style="margin-top: 12px; background:#ff4d4d; border:none; padding:8px 12px; border-radius:6px; cursor:pointer; font-weight:700; color:white;">
+    Limpar Carrinho
+  </button>
 </div>
 
 <!-- Modal forma de pagamento -->
@@ -1683,6 +1686,17 @@
   <button class="btn-pagamento" data-pagamento="CARTÃO">Cartão</button>
   <button id="fechar-pagamento">Cancelar</button>
 </div>
+
+	const btnLimparCarrinho = document.getElementById('limpar-carrinho');
+
+btnLimparCarrinho.addEventListener('click', () => {
+  if (confirm('Deseja realmente limpar todo o carrinho?')) {
+    carrinho = {};                // limpa o objeto do carrinho
+    salvarCarrinho();             // atualiza o localStorage
+    atualizarContador();          // atualiza o contador
+    atualizarListaItens();        // atualiza a lista de itens no modal
+  }
+});
 
 <script>
 // Elementos principais
@@ -1934,17 +1948,6 @@ botoesPagamento.forEach(btn => {
   });
 });
 
-	const btnLimparCarrinho = document.getElementById('limpar-carrinho');
-
-btnLimparCarrinho.addEventListener('click', () => {
-  if (confirm('Deseja realmente limpar todo o carrinho?')) {
-    carrinho = {};                // limpa o objeto do carrinho
-    salvarCarrinho();             // atualiza o localStorage
-    atualizarContador();          // atualiza o contador
-    atualizarListaItens();        // atualiza a lista de itens no modal
-  }
-});
-
 </script>
 
 <footer style="
@@ -1963,6 +1966,7 @@ btnLimparCarrinho.addEventListener('click', () => {
 </footer>
 </body>
 </html>
+
 
 
 
