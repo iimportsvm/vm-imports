@@ -1935,6 +1935,21 @@ for (const id in carrinho) {
   let nomeLimpo = item.nome.replace(/\*/g, ''); // remove TODOS os asteriscos
   mensagemProdutos += `- ${nomeLimpo} x${item.quantidade}\n`;
 }
+
+function limparNomeProduto(texto) {
+  return texto
+    .normalize('NFKD')          
+    .replace(/[\u0300-\u036f]/g, '') 
+    .replace(/[\u200B-\u200D\uFEFF]/g, '') 
+    .replace(/\*/g, '')          
+    .trim();
+}
+
+	let mensagemProdutos = '';
+for (const id in carrinho) {
+  const item = carrinho[id];
+  mensagemProdutos += `- ${limparNomeProduto(item.nome)} x${item.quantidade}\n`;
+}
 	
 </script>
 
@@ -1954,6 +1969,7 @@ for (const id in carrinho) {
 </footer>
 </body>
 </html>
+
 
 
 
