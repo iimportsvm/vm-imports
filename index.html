@@ -1917,7 +1917,8 @@ botoesPagamento.forEach(btn => {
     for (const id in carrinho) {
       const item = carrinho[id];
       let nomeLimpo = limparNomeProduto(item.nome);
-      mensagemProdutos += `- ${nomeLimpo} x${item.quantidade}\n`;
+      let nomeLimpo = limparNomeProduto(item.nome);
+mensagemProdutos += `- ${nomeLimpo} x${item.quantidade}\n`;
     }
 
     const mensagem = `Olá! Gostaria de finalizar a compra com a forma de pagamento: ${forma}.\nProdutos:\n${mensagemProdutos}`;
@@ -1948,5 +1949,6 @@ botoesPagamento.forEach(btn => {
 </footer>
 </body>
 </html>
+
 
 
