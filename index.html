@@ -1918,6 +1918,29 @@ document.getElementById("btn-promocoes").addEventListener("click", function() {
   // Scroll para o topo
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+function enviarCarrinhoWhatsApp(carrinho) {
+  let mensagem = "🛒 Meu pedido:\n\n";
+
+  // Monta a lista de todos os produtos
+  carrinho.forEach(item => {
+    mensagem += `- ${item.nome} x${item.quantidade}\n`;
+  });
+
+  // Aqui é a parte importante:
+  // encodeURIComponent corrige TODOS os caracteres especiais de uma vez
+  let mensagemCodificada = encodeURIComponent(mensagem);
+
+  // Coloque seu número do WhatsApp
+  let numero = "5599999999999";  
+  let link = `https://wa.me/${numero}?text=${mensagemCodificada}`;
+
+  window.open(link, "_blank");
+}
+
+	document.querySelector("#finalizar").addEventListener("click", function() {
+  enviarCarrinhoWhatsApp(carrinho);
+});
 	
 </script>
 
@@ -1937,3 +1960,4 @@ document.getElementById("btn-promocoes").addEventListener("click", function() {
 </footer>
 </body>
 </html>
+
