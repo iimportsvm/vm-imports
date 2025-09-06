@@ -1923,19 +1923,13 @@ function enviarCarrinhoWhatsApp(carrinho) {
   let mensagem = "Olá! Gostaria de finalizar a compra com a forma de pagamento: *PIX*.\nProdutos:\n";
 
   carrinho.forEach(item => {
-    // Normaliza caracteres (resolve acentos quebrados)
-    let nomeCorrigido = item.nome.normalize("NFC");
-
-    // Escapa caracteres especiais do WhatsApp (* _ ~ `) para não quebrar a formatação
-    nomeCorrigido = nomeCorrigido.replace(/([*_~`])/g, "\\$1");
-
-    mensagem += `- ${nomeCorrigido} x${item.quantidade}\n`;
+    mensagem += `- ${item.nome} x${item.quantidade}\n`;
   });
 
-  // Codifica a mensagem inteira para URL
+  // 🔥 Aqui é fundamental: codificar a mensagem toda ANTES do link
   let mensagemCodificada = encodeURIComponent(mensagem);
 
-  let numero = "5599999999999"; // coloque seu número aqui
+  let numero = "5537998259520"; // seu número do WhatsApp
   let link = `https://wa.me/${numero}?text=${mensagemCodificada}`;
 
   window.open(link, "_blank");
@@ -1959,3 +1953,4 @@ function enviarCarrinhoWhatsApp(carrinho) {
 </footer>
 </body>
 </html>
+
