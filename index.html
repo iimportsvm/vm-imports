@@ -1899,37 +1899,6 @@ document.getElementById("btn-promocoes").addEventListener("click", function() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// Função para limpar caracteres problemáticos
-function limparNomeProduto(texto) {
-  return texto
-    .normalize('NFKD')               // separa acentos
-    .replace(/[\u0300-\u036f]/g, '') // remove acentos
-    .replace(/[\u200B-\u200D\uFEFF]/g, '') // remove invisíveis
-    .replace(/[\*\~ç]/gi, '')        // remove *, ~ e ç
-    .trim();
-}
-	
-botoesPagamento.forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    const forma = e.target.getAttribute('data-pagamento');
-    let mensagemProdutos = '';
-
-    for (const id in carrinho) {
-      const item = carrinho[id];
-      let nomeLimpo = limparNomeProduto(item.nome); // remove *
-      mensagemProdutos += `- ${nomeLimpo} x${item.quantidade}\n`;
-    }
-
-    const mensagem = `Olá! Gostaria de finalizar a compra com a forma de pagamento ${forma}.\nProdutos\n${mensagemProdutos}`;
-    const mensagemUrl = encodeURIComponent(mensagem);
-    const numeroWhatsApp = '5537998259520';
-    const linkWhats = `https://wa.me/${numeroWhatsApp}?text=${mensagemUrl}`;
-
-    modalPagamento.style.display = 'none';
-    window.location.href = linkWhats;
-  });
-});
-
 </script>
 
 <footer style="
@@ -1948,3 +1917,4 @@ botoesPagamento.forEach(btn => {
 </footer>
 </body>
 </html>
+
