@@ -1928,6 +1928,13 @@ for (const id in carrinho) {
   const item = carrinho[id];
   mensagemProdutos += `- ${sanitizarParaWhatsApp(item.nome)} x${item.quantidade}\n`;
 }
+
+let mensagemProdutos = '';
+for (const id in carrinho) {
+  const item = carrinho[id];
+  let nomeLimpo = item.nome.replace(/\*/g, ''); // remove TODOS os asteriscos
+  mensagemProdutos += `- ${nomeLimpo} x${item.quantidade}\n`;
+}
 	
 </script>
 
@@ -1947,6 +1954,7 @@ for (const id in carrinho) {
 </footer>
 </body>
 </html>
+
 
 
 
