@@ -1899,6 +1899,28 @@ document.getElementById("btn-promocoes").addEventListener("click", function() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
+function sanitizarParaWhatsApp(texto) {
+  return texto
+    // Remove caracteres de controle e invisíveis
+    .replace(/[\u200B-\u200D\uFEFF]/g, '')
+    // Substitui múltiplos espaços por um espaço simples
+    .replace(/\s+/g, ' ')
+    // Remove asteriscos para evitar Markdown indesejado
+    .replace(/\*/g, '')
+    // Remove espaços no início e no fim
+    .trim();
+}
+
+// Exemplo de uso
+const produtos = [
+  "Perfume Ouro Cósmico - Inspiração",
+  "Perfume Souvenir branco - Inspiração"
+];
+
+const mensagemWhatsApp = produtos.map(p => `- ${sanitizarParaWhatsApp(p)} x1`).join('\n');
+
+console.log(mensagemWhatsApp);
+	
 </script>
 
 <footer style="
@@ -1917,4 +1939,5 @@ document.getElementById("btn-promocoes").addEventListener("click", function() {
 </footer>
 </body>
 </html>
+
 
