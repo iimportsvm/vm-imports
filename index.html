@@ -1930,6 +1930,10 @@ mensagemProdutos += `- ${nomeLimpo} x${item.quantidade}\n`;
   });
 });
 
+let mensagemLimpa = mensagemOriginal.replace(/\*/g, '');
+
+	console.log(mensagemLimpa);
+	
 </script>
 
 <footer style="
@@ -1948,6 +1952,7 @@ mensagemProdutos += `- ${nomeLimpo} x${item.quantidade}\n`;
 </footer>
 </body>
 </html>
+
 
 
 
