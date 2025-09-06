@@ -1658,6 +1658,10 @@
   <div id="contador-carrinho" aria-live="polite">0</div>
 </div>
 
+<button id="limpar-carrinho" style="margin-top: 12px; background:#d40000; border:none; padding:8px 12px; border-radius:6px; cursor:pointer; font-weight:700; color:#fff;">
+  Limpar Carrinho
+</button>
+	
 <!-- Modal do carrinho -->
 <div id="modal-carrinho" aria-label="Itens no carrinho">
   <h3>Seu Carrinho</h3>
@@ -1930,6 +1934,17 @@ botoesPagamento.forEach(btn => {
   });
 });
 
+	const btnLimparCarrinho = document.getElementById('limpar-carrinho');
+
+btnLimparCarrinho.addEventListener('click', () => {
+  if (confirm('Deseja realmente limpar todo o carrinho?')) {
+    carrinho = {};                // limpa o objeto do carrinho
+    salvarCarrinho();             // atualiza o localStorage
+    atualizarContador();          // atualiza o contador
+    atualizarListaItens();        // atualiza a lista de itens no modal
+  }
+});
+
 </script>
 
 <footer style="
@@ -1948,6 +1963,7 @@ botoesPagamento.forEach(btn => {
 </footer>
 </body>
 </html>
+
 
 
 
